@@ -4,7 +4,7 @@ import pandas as pd
 # filepath
 fn = "/home/jip/nfi_germany_treedata/bwi_tree.csv"
 
-df = pd.read_csv(fn, sep=";", encoding="iso-8859-1")
+df = pd.read_csv(fn, sep=";", encoding="iso-8859-1", decimal=",")
 
 
 def filter_rows(df):
@@ -95,6 +95,8 @@ dropcols = [
     "ba_incr_y",
     "%ba_incr_y",
     "height_method",
+    "tree_ID",
+    "measurement_ID",
 ]
 
 df_filtered = filter_rows(df)
@@ -102,4 +104,6 @@ merged_df = merge_columns(df_filtered)
 print(merged_df.head())
 
 train_df = drop_columns(merged_df, dropcols)
-train_df.to_csv("train.csv", index=False)
+train_df.to_csv("preprocessed_train.csv", index=False)
+
+print("preprocessing successful!")
