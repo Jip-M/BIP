@@ -1,0 +1,6 @@
+['plot_ID', 'plot_exposition', 'plot_awc_top', 'plot_awc_sub',
+       'plot_base_sat_top', 'plot_base_sat_sub', 'plot_growth_zone',
+       'plot_terr_form', 'plot_hydrol_class', 'tree_ID', 'measurement_ID',
+       'species', 'species_grp', 'species_type', 'height_method', 'layer',
+       'stem_form']
+       
