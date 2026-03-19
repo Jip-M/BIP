@@ -77,8 +77,29 @@ def merge_columns(df_filtered):
     return train_df
 
 
-df_filtered = filter_rows(df)
-train_df = merge_columns(df_filtered)
-print(train_df.head())
+def drop_columns(df, dropcols: list[str]):
+    df = df.drop(dropcols, axis=1)
+    return df
 
+
+dropcols = [
+    "species_type",
+    "species",
+    "dbh_class",
+    "age_class",
+    "NFI_period",
+    "year",
+    "previous_year",
+    "time_interval",
+    "ba",
+    "ba_incr_y",
+    "%ba_incr_y",
+    "height_method",
+]
+
+df_filtered = filter_rows(df)
+merged_df = merge_columns(df_filtered)
+print(merged_df.head())
+
+train_df = drop_columns(merged_df, dropcols)
 train_df.to_csv("train.csv", index=False)
